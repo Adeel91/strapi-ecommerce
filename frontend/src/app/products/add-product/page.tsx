@@ -34,7 +34,7 @@ export default function AddProductPage() {
       imageFormData.append('files', image);
 
       const uploadResponse = await axios.post(
-        'http://localhost:1337/api/upload',
+        `${process.env.NEXT_PUBLIC_API_URL}/api/upload`,
         imageFormData,
         {
           headers: {
@@ -57,7 +57,7 @@ export default function AddProductPage() {
         };
 
         const productResponse = await axios.post(
-          'http://localhost:1337/api/products',
+          `${process.env.NEXT_PUBLIC_API_URL}/api/products`,
           productFormData,
           {
             headers: {

@@ -18,7 +18,7 @@ export default function ProductsPage() {
   const [cartCount, setCartCount] = useState<number>(0);
 
   useEffect(() => {
-    fetch('http://localhost:1337/api/products?populate=*')
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/products?populate=*`)
       .then((res) => res.json())
       .then((data) => {
         const mapped = data.data.map((item: any) => {
@@ -64,7 +64,7 @@ export default function ProductsPage() {
           >
             {product.image && (
               <img
-                src={`http://localhost:1337${product.image}`}
+                src={`${process.env.NEXT_PUBLIC_API_URL}${product.image}`}
                 alt={product.name}
                 className="w-full h-48 object-cover rounded-t-lg"
               />
